@@ -19,6 +19,7 @@
 @endtask
 
 
+
 @task('deploy', ['on' => 'web'])
     cd /var/www/html/restfull
     ls -la
