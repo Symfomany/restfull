@@ -4,7 +4,6 @@
 @task('deployfirst', ['on' => 'web'])
     composer self-update
     cd /var/www/html
-    rm -R restfull
     ls -la
     git clone https://github.com/Symfomany/restfull.git
     cd restfull
