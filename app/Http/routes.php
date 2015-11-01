@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::resource('ads', 'AdsController');
 
+Route::controller('auth', 'AuthController');
+
 /*
 Route::group(['prefix' => 'ads'], function () {
 
