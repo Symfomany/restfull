@@ -113,7 +113,7 @@
 
     <div class="masonry grid full-width animate">
 
-        @forelse(\App\Model\AdsMongo::all() as $ad)
+        @forelse(\App\Model\AdsMongo::take(20)->get() as $ad)
             <div class="item move_from_bottom">
                 <a href="assets/pages/items/7_e.html" data-expand-width="col-9" data-transition-parent=".content-loader" data-external="true">
                     <div class="inner">
