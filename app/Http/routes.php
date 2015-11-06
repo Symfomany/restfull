@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/webcam', function () {
+    return view('webcam');
+});
+
+
 Route::resource('ads', 'AdsController');
 
 Route::controller('auth', 'AuthController');
