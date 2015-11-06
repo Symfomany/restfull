@@ -30,5 +30,5 @@ io.sockets.on('connection', function (socket) {
 
 
 //listen 3000 port
-http.listen(3000, function(){
+http.listen(3001, function(){
 });

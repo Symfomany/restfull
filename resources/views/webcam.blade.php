@@ -62,7 +62,7 @@
 <script>
     $(document).ready(function() {
 
-        var socket = io(window.location.hostname + ':3000');
+        var socket = io(window.location.hostname + ':3001');
 
         var c_width = 500;
         var c_height = 350;
