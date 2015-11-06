@@ -20,6 +20,10 @@ Route::get('/webcam', function () {
     return view('webcam');
 });
 
+Route::get('/home', function () {
+    return view('Pages.home');
+});
+
 
 Route::resource('ads', 'AdsController');
 

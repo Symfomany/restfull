@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use App\Model\AdsMongo;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
+//use Illuminate\Support\Facades\DB;
 use Symfony\Component\DomCrawler\Crawler;
 use Guzzle\Http\Client;
 
@@ -94,7 +94,7 @@ class Ads extends Command
              * Extraction de chaques annonces
              */
             $filter = $crawler->filter('li.annonce');
-            dump(iterator_count($filter));
+//            dump(iterator_count($filter));
 
             if (iterator_count($filter) > 1) {
 
@@ -105,7 +105,20 @@ class Ads extends Command
                     $crawler = new Crawler($content);
 
                     // extract the values needed
-                    $results[] = array(
+//                    $results[] = array(
+////                        'id' => $crawler->filter('a.button-contact')->attr("data-annonce-id"),
+//                        'topic' => preg_replace('/(\v|\s)+/', ' ', $crawler->filter('.header-annonce')->text()),
+//                        'description' => preg_replace('/(\v|\s)+/', ' ', $crawler->filter('.description')->text()),
+//                        'image' => $crawler->filter('img')->attr('src'),
+//                        'link' => $crawler->filter('a')->attr('href'),
+//                        'prix' => $crawler->filter('.prix')->text(),
+//                        'source' => 'http://www.pap.fr'.$link,
+//                    );
+
+
+                    $ad = new AdsMongo();
+                    $ad->id = $crawler->filter('.header-annonce a')->attr("name");
+                    $ad->data = array(
 //                        'id' => $crawler->filter('a.button-contact')->attr("data-annonce-id"),
                         'topic' => preg_replace('/(\v|\s)+/', ' ', $crawler->filter('.header-annonce')->text()),
                         'description' => preg_replace('/(\v|\s)+/', ' ', $crawler->filter('.description')->text()),
@@ -114,6 +127,9 @@ class Ads extends Command
                         'prix' => $crawler->filter('.prix')->text(),
                         'source' => 'http://www.pap.fr'.$link,
                     );
+                    $ad->save();
+
+
                 }
 
 
@@ -158,8 +174,8 @@ class Ads extends Command
 
 
       ;  //dump($result);
-        dump(count($results));
-        dump(($results[0]));
+//        dump(count($results));
+//        dump(($results[0]));
 
     }
 }
