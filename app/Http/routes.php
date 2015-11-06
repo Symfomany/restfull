@@ -11,16 +11,16 @@
 |
 */
 
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+
+//Route::get('/', function () {
+//    return view('webcam');
+//});
+
 Route::get('/', function () {
-    return view('welcome');
-});
-
-
-Route::get('/webcam', function () {
-    return view('webcam');
-});
-
-Route::get('/home', function () {
     return view('Pages.home');
 });
 
