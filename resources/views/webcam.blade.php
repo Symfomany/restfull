@@ -49,10 +49,7 @@
 
     <!-- Optional sender -->
     <video autoplay="true" id="client"></video>
-        <canvas id="preview"></canvas>
-
-        <!-- Log output -->
-        <div id="log"></div>
+    <canvas id="preview"></canvas>
 
 </div>
 <script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
@@ -90,8 +87,6 @@
          */
         socket.on('update', function(data) {
             receiver.src = data;
-//            console.log('receive data user!!!');
-            log('Received data');
         });
 
 
@@ -124,10 +119,7 @@
 
                     // successCallback
                     function(localMediaStream) {
-                        var video = document.querySelector('video');
                         video.src = window.URL.createObjectURL(localMediaStream);
-
-                        // Do something with the video here, e.g. video.play()
                     },
 
                     // errorCallback
