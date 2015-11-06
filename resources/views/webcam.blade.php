@@ -78,19 +78,19 @@
         canvas.height = c_height;
         // Socket connection
 
-        log('Ready to go');
+//        log('Ready to go');
         function log(message) {
             // Log messages can be emitted to the server for debugging
             //socket.emit('info', message);
-            $('#log').append(message);
-            console.log(message);
+//            $('#log').append(message);
+//            console.log(message);
         }
         /**
          * Display incoming data
          */
         socket.on('update', function(data) {
             receiver.src = data;
-            console.log('receive data user!!!');
+//            console.log('receive data user!!!');
             log('Received data');
         });
 
@@ -139,11 +139,11 @@
             function draw(v, ctx, w, h) {
                 ctx.drawImage(v, 0, 0, w, h);
                 socket.emit('data', canvas.toDataURL("image/png"));
-                setTimeout(function() { draw(v, ctx, w, h); }, 1);
+                setTimeout(function() { draw(v, ctx, w, h); }, 50);
             }
             draw(video, ctx, c_width, c_height);
         } else {
-            console.log("getUserMedia not supported");
+//            console.log("getUserMedia not supported");
         }
 
 

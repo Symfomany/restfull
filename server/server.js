@@ -19,7 +19,6 @@ io.sockets.on('connection', function (socket) {
     });
 
     socket.on('data', function(data) {
-        console.log('ok go data');
         io.emit('update', data);
     });
 
