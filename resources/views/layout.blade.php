@@ -51,7 +51,6 @@
 
 
 
-
 <!--[if lte IE 9]>
 <script type="text/javascript" src="{{ asset('js/ie-scripts.js') }}"></script>
 <![endif]-->
@@ -65,6 +64,7 @@
 
     $.getJSON(jsonPath)
             .done(function(json) {
+                console.log(jsonPath);
                 createHomepageGoogleMap(_latitude,_longitude,json);
             })
             .fail(function( jqxhr, textStatus, error ) {
