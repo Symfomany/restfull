@@ -5,13 +5,11 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="{{ asset('fonts/font-awesome.css') }}" rel="stylesheet" type="text/css">
+{{--    <link href="{{ asset('fonts/font-awesome.css') }}" rel="stylesheet" type="text/css">--}}
     <link href='http://fonts.googleapis.com/css?family=Roboto:700,400,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/jquery.nouislider.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link href="{{ asset('css/all.css') }}" rel="stylesheet" type="text/css">
 
     <title>Ou me loger?</title>
 
@@ -31,24 +29,7 @@
 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
 <script type="text/javascript" src="{{ asset('js/jquery-2.1.0.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/imagesloaded.pkgd.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/jquery-migrate-1.2.1.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/jquery.color-2.1.2.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/jquery.average-color.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/infobox.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/richmarker-compiled.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/markerclusterer.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/smoothscroll.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/owl.carousel.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/bootstrap-select.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/icheck.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/jquery.nouislider.all.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/jquery.inview.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/functions.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
-
+<script type="text/javascript" src="{{ asset('js/all.js') }}"></script>
 
 
 <!--[if lte IE 9]>
