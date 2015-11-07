@@ -1,3 +1,23 @@
+AddType text/html .htm
+AddType text/html .html
+AddType application/x-httpd-php .foo
+AddType text/javascript .js
+AddType text/css .css
+AddType application/x-shockwave-flash .swf
+AddType video/x-flv .flv
+AddType image/gif .gif
+AddType image/jpg .jpg
+AddType image/png .png
+AddType application/pdf .pdf
+AddType application/zip .zip
+
+allow from all
+
+
+AddDefaultCharset UTF-8
+AddLanguage fr-FR .html .htm .css .js
+
+
 # BEGIN Cache-Control Headers
 <ifmodule mod_headers.c>
  <filesmatch "\\.(ico|jpe?g|png|gif|swf|gz|ttf)$">
@@ -30,6 +50,10 @@ BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
 SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip
 #les proxies doivent donner le bon contenu
 Header append Vary User-Agent env=!dont-vary
+
+
+
+
 
 RewriteEngine on
 #Check to see if browser can accept gzip files. If so and we have it – serve it!
@@ -89,4 +113,40 @@ mod_gzip_item_exclude mime ^image/.*
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+</IfModule>
+
+<IfModule mod_headers>
+  # Mise en cache pour un mois
+  <FilesMatch ".(ico|jpe?g|png|gif|swf|flv|gz)$">
+  Header set Cache-Control "max-age=2592000"
+  </FilesMatch>
+
+  # Mise en cache pour 2 heures
+  <filesMatch ".(css|js)$">
+  Header set Cache-Control "max-age=7200"
+  </filesMatch>
+
+  # Désactive la mise en cache
+  <FilesMatch ".(pl|php|cgi)$">
+  Header unset Cache-Control
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_expires>
+  ExpiresActive On
+  ExpiresDefault "access plus 7200 seconds"
+  AddType image/x-icon .ico
+  ExpiresByType image/gif "access plus 2592000 seconds"
+  ExpiresByType image/ico "access plus 2592000 seconds"
+  ExpiresByType image/jpg "access plus 2592000 seconds"
+  ExpiresByType image/png "access plus 2592000 seconds"
+  ExpiresByType image/jpeg "access plus 2592000 seconds"
+  ExpiresByType image/icon "access plus 2592000 seconds"
+  ExpiresByType image/x-icon "access plus 2592000 seconds"
+  ExpiresByType text/css "access plus 2592000 seconds"
+  ExpiresByType text/html "access plus 7200 seconds"
+  ExpiresByType text/javascript "access plus 2592000 seconds"
+  ExpiresByType application/xhtml+xml "access plus 7200 seconds"
+  ExpiresByType application/x-javascript "access plus 2592000 seconds"
+  ExpiresByType application/x-shockwave-flash "access plus 2592000 seconds"
 </IfModule>
